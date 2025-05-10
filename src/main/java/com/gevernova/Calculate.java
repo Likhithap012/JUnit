@@ -1,21 +1,21 @@
 package com.gevernova;
 
 public class Calculate {
-    public int add(int a, int b){
-        int sum=a+b;
+    public int add(int numOne, int numTwo){
+        int sum= numOne + numTwo;
         return sum;
     }
-    public int sub(int a,int b){
-        return a-b;
+    public int sub(int numOne, int numTwo){
+        return numOne - numTwo;
     }
-    public int multiply(int a, int b){
-        return a*b;
+    public int multiply(int numbOne, int numTwo){
+        return numbOne * numTwo;
     }
-    public int divide(int a,int b){
-        if(b==0){
+    public int divide(int numOne, int numTwo){
+        if(numTwo ==0){
             throw new ArithmeticException("Cannot Divided By zero");
         }
-        return a/b;
+        return numOne / numTwo;
     }
 
 }

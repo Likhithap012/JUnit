@@ -1,4 +1,3 @@
-
 import com.gevernova.ListManager;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -18,6 +17,8 @@ class ListManagerTest {
         listManager = new ListManager();
         list = new ArrayList<>();
     }
+
+    // Positive Test Cases
 
     @Test
     void testAddElement() {
@@ -40,5 +41,32 @@ class ListManagerTest {
 
         listManager.removeElement(list, 1);
         assertEquals(1, listManager.getSize(list));
+    }
+
+    @Test
+    void testAddMultipleElements() {
+        listManager.addElement(list, 5);
+        listManager.addElement(list, 15);
+        listManager.addElement(list, 25);
+        assertEquals(3, listManager.getSize(list));
+    }
+
+    // Negative Test Cases
+
+    @Test
+    void testAddElementToNullList() {
+        NullPointerException exception = assertThrows(NullPointerException.class, () -> {
+            listManager.addElement(null, 10);
+        });
+        assertEquals("Cannot invoke \"java.util.List.add(Object)\" because \"list\" is null", exception.getMessage());
+    }
+
+
+    @Test
+    void testGetSizeOfNullList() {
+        NullPointerException exception = assertThrows(NullPointerException.class, () -> {
+            listManager.getSize(null);
+        });
+        assertEquals("Cannot invoke \"java.util.List.size()\" because \"list\" is null", exception.getMessage());
     }
 }
